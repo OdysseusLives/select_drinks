@@ -44,11 +44,11 @@ function usage() {
 
 while getopts :c:hdfn opt; do
   case $opt in
-    c | 'choice' ) drink_choice=$OPTARG ;;
-    d | 'debug' ) echo 'debug is a wip' ; exit 0 ; ;;
-    f | 'format' ) echo 'format is a wip' ; exit 0 ; ;;
-    h | 'help' | usage ) usage ; exit 0; ;;
-    n | 'dryrun' ) echo 'dry-run is a wip' ; exit 0 ; ;;
+    c ) drink_choice=$OPTARG ;;
+    d ) echo 'debug is a wip' ; exit 0 ; ;;
+    f ) echo 'format is a wip' ; exit 0 ; ;;
+    h ) usage ; exit 0; ;;
+    n ) echo 'dry-run is a wip' ; exit 0 ; ;;
     * ) "Invalid option: ${OPTARG}." ; exit 2 ; ;;
   esac
 done
