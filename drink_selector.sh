@@ -44,7 +44,6 @@ function usage() {
 
 while getopts :c:hdfn opt; do
   case $opt in
-    c ) drink_choice=$OPTARG ;;
     c | 'choice' ) drink_choice=$OPTARG ;;
     d | 'debug' ) echo 'debug is a wip' ; exit 0 ; ;;
     f | 'format' ) echo 'format is a wip' ; exit 0 ; ;;
