@@ -42,13 +42,14 @@ function usage() {
   echo '  n | dryrun         dry-run'
 }
 
-while getopts :c:hdfn opt; do
+while getopts :c:hdfn-: opt; do
+  [[ - == $opt ]] && opt=${OPTARG%%=*} OPTARG=${OPTARG#*=}
   case $opt in
-    c ) drink_choice=$OPTARG ;;
-    d ) echo 'debug is a wip' ; exit 0 ; ;;
-    f ) echo 'format is a wip' ; exit 0 ; ;;
-    h ) usage ; exit 0; ;;
-    n ) echo 'dry-run is a wip' ; exit 0 ; ;;
+    c | choice ) drink_choice=$OPTARG ;;
+    d | debug ) echo 'debug is a wip' ; exit 0 ; ;;
+    f | format ) echo 'format is a wip' ; exit 0 ; ;;
+    h | help | usage ) usage ; exit 0; ;;
+    n | dryrun ) echo 'dry-run is a wip' ; exit 0 ; ;;
     * ) "Invalid option: ${OPTARG}." ; exit 2 ; ;;
   esac
 done
